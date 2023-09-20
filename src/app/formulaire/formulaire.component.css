@@ -1,0 +1,34 @@
+.formulaire{
+    margin-top: 40px;
+}
+
+
+/* Add this CSS to your component's CSS file or styles.scss */
+/* styles.css or your custom CSS file */
+.custom-form-field {
+  
+    color: #333; /* Text color */
+    margin-right: 10px;
+  }
+  
+  .custom-select {
+    /*background-color: lightyellow*/
+    color: #333; /* Text color */
+  }
+  /* styles.css or your custom CSS file */
+.custom-button {
+    background-color: green;
+    color: white;
+  }
+  .a {
+    margin-right: 10px;
+  }
+  .b{
+    margin-right: 10px;
+  }
+  .error-message {
+    font-size: 12px;
+    color: red;
+    margin-top: 4px;
+  }
+  

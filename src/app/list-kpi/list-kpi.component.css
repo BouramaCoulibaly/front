@@ -1,0 +1,112 @@
+/* Change the focus color of the input fields */
+.mat-form-field.mat-focused .mat-form-field-underline {
+  background-color: red !important; /* Change to your desired color */
+}
+
+/* Change the focus color of the mat-select */
+.mat-form-field.mat-focused .mat-form-field-infix {
+  border-color: red !important; /* Change to your desired color */
+}
+
+/* Change the focus color of the input text in mat-select */
+.mat-select.mat-focused .mat-select-value-text {
+  color: red !important; /* Change to your desired color */
+}
+
+/* Change the focus color of the mat-option in mat-select */
+.mat-option.mat-selected.mat-active {
+  background-color: red !important; /* Change to your desired color */
+  color: #fff !important; /* Text color for selected option */
+}
+:host(:focus) {
+  background-color: red;
+}
+
+.filter-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.filter-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 10px; /* Add spacing between rows */
+}
+
+/* Adjust the width of filter row for larger screens */
+@media (min-width: 768px) {
+  .filter-row {
+    width: 50%;
+  }
+}
+
+.okay{
+  margin-left: 20px;
+  margin-right: 20px;
+}
+h4{
+  text-align: center;
+  color: #ff5722;
+  background-color: black
+}
+.center-button{
+  display: flex;
+  justify-content: center; /* Horizontally center the button */
+  margin-top: 2.5px;
+  
+}
+
+.highlight-red {
+  background-color: #ff5722;
+  color: white; /* Optional: Change text color to white for better visibility */
+}
+.container-box {
+  border: 1px solid #ff5722;
+  border-radius: 5px;
+  padding: 10px;
+  /*box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+ /* background-color: #fff; /* Optional: Add a background color */
+  /*margin: 10px; /* Optional: Add margin to create spacing around the box */
+}
+
+/* Add lines between table columns */
+
+/* Add vertical lines between table columns */
+/* Add vertical lines between table columns */
+.okay {
+  border-collapse: collapse;
+  width: 100%; /* Add this to ensure the table spans the entire container */
+}
+
+.k,
+.e {
+  border-bottom: 1px solid #e0e0e0;
+}
+.e{
+  background-color: black;
+}
+.e:hover{
+  color: #fff;
+}
+
+.c
+{
+  border-right: 1px solid #e0e0e0;
+  padding: 8px; /* Adjust padding as needed */
+  background-color: transparent; /* Set background color to black */
+  color: black; /* Set font color to #ff5722 */
+}
+.b{
+  background-color: black;
+  color: #ff5722;
+}
+
+/* Remove right border for the last column */
+.c:last-child,
+.b:last-child {
+  border-right: none;
+}
+

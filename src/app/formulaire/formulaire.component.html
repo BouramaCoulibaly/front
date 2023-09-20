@@ -1,0 +1,63 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" >
+  <div class="custom-form-container">
+
+    <!-- DB Name Field -->
+    <mat-form-field class="custom-form-field">
+      <mat-label>DB Name</mat-label>
+      <mat-select class="custom-select" formControlName="dbName" (selectionChange)="updateTableNameOptions()">
+        <mat-option *ngFor="let option of dbNameOptions" [value]="option">{{ option }}</mat-option>
+      </mat-select>
+      <button mat-icon-button matSuffix *ngIf="form.get('dbName')?.value" (click)="clearDbName()">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!-- Table Name Field -->
+    <mat-form-field class="a">
+      <mat-label>Table Name</mat-label>
+      <mat-select formControlName="tableName" [disabled]="!form.get('dbName')?.value">
+        <mat-option *ngFor="let option of tableNameOptions" [value]="option">{{ option }}</mat-option>
+      </mat-select>
+      <!-- Use a div to display the message -->
+      <div *ngIf="!dbNameSelected && isMouseOverTableSelect" class="error-message">
+        Please choose a DB name first.
+      </div>
+      <button mat-icon-button matSuffix *ngIf="form.get('tableName')?.value" (click)="clearTableName()">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-form-field>
+    
+    
+    
+    
+    <!-- Export Day Field -->
+    <mat-form-field class="b">
+      <mat-label>Export Day</mat-label>
+      <mat-select formControlName="exportDay" (click)="fetchUniqueExportDays()">
+        <mat-option *ngFor="let option of exportDayOptions" [value]="option">{{ option | date }}</mat-option>
+      </mat-select>
+      <button mat-icon-button matSuffix *ngIf="form.get('exportDay')?.value" (click)="clearExportDay()">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-form-field>
+    
+    
+    <!-- Seui Input Field -->
+    <mat-form-field>
+      <mat-label>Seuil</mat-label>
+      <input matInput formControlName="number" type="number">
+      <mat-error *ngIf="form.get('number')?.hasError('required')">
+        Seuil is required.
+      </mat-error>
+      <mat-error *ngIf="form.get('number')?.hasError('invalidSeuil')">
+        Seuil value must be between 0 and 1.
+      </mat-error>
+      <button mat-icon-button matSuffix *ngIf="form.get('number')?.value" (click)="clearSeuil()">
+        <mat-icon>cancel</mat-icon>
+      </button>
+    </mat-form-field>
+  </div>
+
+  <button mat-raised-button class="custom-button" (click)="onSubmit()">Submit</button>
+</form>
+<!---->

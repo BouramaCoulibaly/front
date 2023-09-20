@@ -1,0 +1,25 @@
+<div class="seuil-update-form-container">
+    <h2>Modifier le seuil</h2>
+    <form [formGroup]="seuilForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label for="BD">Nom de la base de données</label>
+        <input type="text" id="BD" formControlName="BD" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="TB">Table</label>
+        <select id="TB" formControlName="TB" class="form-control">
+          <!-- Options pour la liste des tables -->
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="idFichier">ID Fichier</label>
+        <input type="number" id="idFichier" formControlName="idFichier" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="valeur">Valeur du seuil</label>
+        <input type="number" id="valeur" formControlName="valeur" class="form-control">
+      </div>
+      <button type="submit" [disabled]="seuilForm.invalid" class="btn btn-primary">OK</button>
+    </form>
+  </div>
+  

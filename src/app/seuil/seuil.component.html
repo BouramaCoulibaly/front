@@ -1,0 +1,85 @@
+<mat-toolbar class="ba">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <!--<img src="./assets/log.jfif" alt="Logo" >-->
+    </button>
+    <div class="black-toolbar">
+      <span>Parametrage de la valeur du Seuil de Contrôle</span>
+    </div>
+    <!--<span>My App</span>--> 
+    <span class="example-spacer"></span>
+    <div class="buttons">
+      <!--<a href="/" class="mat-button-like">Home</a>
+      <a href="/tableau" class="mat-button-like">Voir Tableau</a>-->
+    </div>
+  </mat-toolbar>
+  
+  <div class="center-container">
+    <!-- <img src="./assets/kpi2.jpg" alt="Image Description">-->
+    <div class="form-container">
+    <form [formGroup]="seuilForm" (ngSubmit)="onSubmit()" class="seuil-form">
+      <mat-form-field>
+        <mat-label><mat-icon class="org">dns</mat-icon> Select DB Name</mat-label>
+        <mat-select formControlName="dbName" (ngModelChange)="onDbNameSelectionChange()">
+          <mat-option *ngFor="let dbName of uniqueDbNames" [value]="dbName">{{ dbName }}</mat-option>
+        </mat-select>
+        <!-- Add a Clear button for DB Name -->
+        <button mat-icon-button color="primary" (click)="clearField('dbName')" *ngIf="seuilForm.get('dbName')?.value">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label><mat-icon class="org">table_chart</mat-icon> Select Table Name</mat-label>
+        <mat-select formControlName="tableName" (ngModelChange)="onTableNameSelectionChange()">
+          <mat-option *ngFor="let tableName of uniqueTableNames" [value]="tableName">{{ tableName }}</mat-option>
+        </mat-select>
+        <!-- Add a Clear button for Table Name -->
+        <button mat-icon-button color="primary" (click)="clearField('tableName')" *ngIf="seuilForm.get('tableName')?.value">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label><mat-icon class="org">date_range</mat-icon> Select Year</mat-label>
+        <mat-select formControlName="year" (ngModelChange)="onYearSelectionChange()">
+          <mat-option *ngFor="let year of uniqueYears" [value]="year">{{ year }}</mat-option>
+        </mat-select>
+        <!-- Add a Clear button for Year -->
+        <button mat-icon-button color="primary" (click)="clearField('year')" *ngIf="seuilForm.get('year')?.value">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <mat-form-field>
+        <mat-label><mat-icon class="org">event</mat-icon> Select Month</mat-label>
+        <mat-select formControlName="month" (ngModelChange)="onMonthSelectionChange()">
+          <mat-option *ngFor="let month of uniqueMonths" [value]="month">
+            {{ month }}
+          </mat-option>
+        </mat-select>
+        <!-- Add a Clear button for Month -->
+        <button mat-icon-button color="primary" (click)="clearField('month')" *ngIf="seuilForm.get('month')?.value">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+      
+  
+      <mat-form-field>
+        <mat-label><mat-icon class="org">style</mat-icon> Seuil</mat-label>
+        <input matInput type="number" formControlName="seuil">
+        <!-- Add a Clear button for Seuil -->
+        <button mat-icon-button color="primary" (click)="clearField('seuil')" *ngIf="seuilForm.get('seuil')?.value">
+          <mat-icon>clear</mat-icon>
+        </button>
+      </mat-form-field>
+  
+      <div class="button-container">
+        <button mat-raised-button type="submit"><mat-icon class="org">done</mat-icon> Apply</button>
+        <button mat-raised-button (click)="navigateToYourPage()" class="return-button"><mat-icon class="org">arrow_back</mat-icon>Return</button>
+      </div>
+      
+
+    </form>
+    </div>
+  </div>
+  
